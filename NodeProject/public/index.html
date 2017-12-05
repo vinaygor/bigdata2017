@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="myApp">
+  <head>
+    <title>Restaurant Visitors Prediction</title>
+    <script type="text/javascript" src="http://code.angularjs.org/1.2.25/angular.min.js"></script>
+    <script type="text/javascript" src="js/modules/promise-tracker.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+  </head>
+  <body class="container">
+
+  <h2>Restaurant Visitors Prediction</h2>
+
+  <div data-ng-controller="help">
+    <div id="messages" class="alert alert-success" data-ng-show="messages" data-ng-bind="messages"></div>
+    <div data-ng-show="progress.active()" style="color: red; font-size: 50px;">Sending&hellip;</div>
+    <form name="helpForm" novalidate role="form">
+      <div class="form-group">
+        <label for="subjectList">Restaurant Genre</label>
+        <span class="label label-danger" data-ng-show="submitted && helpForm.subjectList.$error.required">Required!</span>
+        <select name="store_genre" data-ng-model="store_genre" data-ng-options="option for option in storeGenreOptions" class="form-control" data-ng-change="getStoreListOptions()" required>
+          <option value=""></option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="subjectList">Restaurants</label>
+        <span class="label label-danger" data-ng-show="submitted && helpForm.subjectList.$error.required">Required!</span>
+        <select name="air_store_id" data-ng-model="air_store_id" data-ng-options="option for option in storeListOptions" class="form-control" required>
+          <option value=""></option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="name">Prediction Date</label>
+        <span class="label label-danger" data-ng-show="submitted && helpForm.name.$error.required">Required!</span>
+        <input type="date" name="date" data-ng-model="date" class="form-control" required />
+      </div>
+
+      <button data-ng-disabled="progress.active()" data-ng-click="submit(helpForm)" class="btn btn-default">Submit</button>
+    </form>
+  </div>
+
+  </body>
+</html>
