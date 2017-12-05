@@ -15,4 +15,4 @@ $ sudo usermod -a -G docker ec2-user
 
 # Running the docker-image
 
-docker run -p 8888:8888 --name bigdata2017 vinay_gor/bigdata2017
+docker run -p 8888:8888 vinay_gor/bigdata2017
