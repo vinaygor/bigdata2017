@@ -67,18 +67,15 @@
     </form>
     <br>
     <br>
+    <span ng-show="callService">Fetching data....</span>
     <div class="form-group">
     <h2>Results from Azure ML API</h2>
     </div>
     <div class="form-group">
-      <label for="name">Actual Value</label>
+      <label for="name">Prediction using ML</label>
       <input type="text" name="result" data-ng-model="result" class="form-control" readonly />
     </div>
 
-    <div class="form-group">
-      <label for="name">Prediction using ML</label>
-      <input type="text" name="scored_value" data-ng-model="scored_value" class="form-control" readonly />
-    </div>
 
   </div>
 

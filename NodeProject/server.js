@@ -18,8 +18,10 @@ app.get('/', function(request,response)
     response.end();
     });
 
+
 app.post('/submit',function(request,response){
 
+var result = 0;
   console.log("Submitting the request..");
   console.log("Request Body received:");
 	console.log(request.body);
@@ -40,46 +42,22 @@ app.post('/submit',function(request,response){
 	 data: JSON.stringify(request.body)
  };
  var url = "https://"+host+path;
- client.post(url,args,function(data,response){
-	 console.log("XHR Response"+response);
+ console.log("Calling URL:",url);
+ client.post(url,args,function(data,resp){
+	 console.log("Response ==>");
+	 console.log(JSON.stringify(data));
+	 console.log("Predicted Value: ");
+	 console.log(data.Results.output1.value.Values[0][11]);
+	 result = data.Results.output1.value.Values[0][11];
+	 console.log("Completed...");
+   response.json(result);
  });
 
  client.registerMethod("postMethod", url, "POST");
 
- client.methods.postMethod(args, function (data, response) {
-	 console.log("XHR Response"+response);
- });
 
-
-console.log("===== OPTIONS DATA========");
-console.log(args);
- var req = https.request(args, function(res) {
-	 console.log("Inside the response....");
-	res.setEncoding('utf-8');
-	console.log(res);
-	var responseString = '';
-
-	// res.on('data', function(data) {
-	// 	responseString += data;
-	// });
-  //
-	// res.on('end', function() {
-	//  console.log(responseString);
-	//  var responseObject = JSON.parse(responseString);
-	//  success(responseObject);
-	//  });
-	// });
-  //
-	// req.write(dataString);
-	// req.end();
-},
-function(err){
-	console.log(err);
 });
 
-	console.log("Completed...");
-  response.json("true");
-});
 
 app.listen(8888);
 console.log("Running on port 8888");
