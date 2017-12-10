@@ -793,7 +793,7 @@ angular.module('myApp', ['ajoslin.promise-tracker'])
       var data = {
       "Inputs": {
         "input1": {
-          "Values": [[$scope.visit_date,$scope.air_store_id,0]]
+          "Values": [[$scope.air_store_id,$scope.visit_date,0]]
         }
       },
       "GlobalParameters": {}
