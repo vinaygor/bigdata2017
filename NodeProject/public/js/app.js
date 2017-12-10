@@ -783,14 +783,23 @@ angular.module('myApp', ['ajoslin.promise-tracker'])
     $scope.progress = promiseTracker();
 
     // Form submit handler.
+    $scope.sampleData = function(){
+      $scope.store_genre= "Asian";
+      $scope.getStoreListOptions();
+      $scope.air_store_id = "air_764f71040a413d4d";
+      $scope.visit_date = "2016-01-12";
+
+    };
+
     $scope.submit = function(form) {
-      $scope.callService = true;
+
       $scope.submitted = true;
       if (form.$invalid) {
         alert("Please enter valid input.");
         return;
       }
       //var reqBody = [$scope.visit_date,$scope.air_store_id,0];
+      $scope.callService = true;
       var data = {
       "Inputs": {
         "input1": {
@@ -803,7 +812,7 @@ angular.module('myApp', ['ajoslin.promise-tracker'])
       //data.Inputs.input1.Values = reqBody;
 
       $http.post('/submit',data).then(function(response){
-        $scope.result = response.data;
+        $scope.result=response.data;
         $scope.callService = false;
       });
     };
