@@ -1,6 +1,7 @@
 /**
  * AngularJS module to process a form.
  */
+
  var storeListOptions = [['air_764f71040a413d4d',
     'air_10bbe8acd943d8f6'],
    ['air_c8265ecc116f2284',
@@ -783,8 +784,25 @@ angular.module('myApp', ['ajoslin.promise-tracker'])
 
     // Form submit handler.
     $scope.submit = function(form) {
-      $http.get('/submit').then(function(request,response){
-        alert("Completed successfully");
+      $scope.submitted = true;
+      if (form.$invalid) {
+        alert("Please enter valid input.");
+        return;
+      }
+      //var reqBody = [$scope.visit_date,$scope.air_store_id,0];
+      var data = {
+      "Inputs": {
+        "input1": {
+          "Values": [[$scope.visit_date,$scope.air_store_id,0]]
+        }
+      },
+      "GlobalParameters": {}
+      };
+
+      //data.Inputs.input1.Values = reqBody;
+
+      $http.post('/submit',data).then(function(request,response){
+        $scope.result = "27";
       });
       // Trigger validation flag.
       // $scope.submitted = true;

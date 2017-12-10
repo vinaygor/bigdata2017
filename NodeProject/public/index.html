@@ -31,14 +31,55 @@
         </select>
       </div>
 
-      <div class="form-group">
-        <label for="name">Prediction Date</label>
-        <span class="label label-danger" data-ng-show="submitted && helpForm.name.$error.required">Required!</span>
-        <input type="date" name="date" data-ng-model="date" class="form-control" required />
+      <!-- <div class="form-group">
+        <label for="subjectList">Reserve Count</label>
+        <span class="label label-danger" data-ng-show="submitted && helpForm.subjectList.$error.required">Required!</span>
+        <input type="number" name="reserve_count" data-ng-model="reserve_count" class="form-control" required />
       </div>
+
+      <div class="form-group">
+        <label for="name">Reserve Date</label>
+        <span class="label label-danger" data-ng-show="submitted && helpForm.name.$error.required">Required!</span>
+        <input type="date" name="reserve_date" data-ng-model="reserve_date" class="form-control" required />
+      </div>
+
+      <div class="form-group">
+        <label for="subjectList">Visit Count</label>
+        <span class="label label-danger" data-ng-show="submitted && helpForm.subjectList.$error.required">Required!</span>
+        <input type="number" name="visit_count" data-ng-model="visit_count" class="form-control" required />
+      </div> -->
+
+      <div class="form-group">
+        <label for="name">Visit Date</label>
+        <span class="label label-danger" data-ng-show="submitted && helpForm.name.$error.required">Required!</span>
+        <input type="text" name="visit_date" data-ng-model="visit_date" class="form-control" placeholder="YYYY-MM-DD" required />
+      </div>
+
+      <!-- <div class="form-group">
+        <label for="subjectList">Holiday Flag</label>
+        <span class="label label-danger" data-ng-show="submitted && helpForm.subjectList.$error.required">Required!</span>
+        <select name="holiday_flg" data-ng-model="holiday_flg" data-ng-options="option for option in [0,1]" class="form-control" required>
+          <option value=""></option>
+        </select>
+      </div> -->
 
       <button data-ng-disabled="progress.active()" data-ng-click="submit(helpForm)" class="btn btn-default">Submit</button>
     </form>
+    <br>
+    <br>
+    <div class="form-group">
+    <h2>Results from Azure ML API</h2>
+    </div>
+    <div class="form-group">
+      <label for="name">Actual Value</label>
+      <input type="text" name="result" data-ng-model="result" class="form-control" readonly />
+    </div>
+
+    <div class="form-group">
+      <label for="name">Prediction using ML</label>
+      <input type="text" name="scored_value" data-ng-model="scored_value" class="form-control" readonly />
+    </div>
+
   </div>
 
   </body>
