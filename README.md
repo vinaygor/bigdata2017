@@ -15,4 +15,4 @@ $ sudo usermod -a -G docker ec2-user
 
 # Running the docker-image
 
-docker run -p 8888:8888 vinaygor/bigdata_try1
+docker pull vinaygor/bigdata2017
