@@ -20,3 +20,7 @@ docker pull vinaygor/bigdata2017
 # Running the docker-image
 
 docker run -p 8888:8888 vinaygor/bigdata2017
+
+# Presentation
+
+https://prezi.com/view/rFpDviPl4U7NmLzF3Lte/
